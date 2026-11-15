@@ -58,3 +58,6 @@ out/
 Thumbs.db
 *.swp
 *~
+
+# ---------- Agent scratch (local issue tracker) ----------
+.scratch/
