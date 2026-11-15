@@ -1,3 +1,26 @@
+# HiveDecide backend
+
+REST API (JSON) for group multi-criteria decision making: WSM, AHP weights,
+Borda, Copeland, GCBIM, BIMBee1. Python 3.13, Django + Django Ninja, PostgreSQL.
+The React frontend lives in a separate repository. Full plan: `docs/plan.md`.
+
+## Thesis
+
+This project is the practical part of a Bachelor's thesis. At the end of every
+ticket, after code review, follow `docs/agents/thesis.md`: propose thesis-worthy
+items to the user and record the approved ones in `docs/thesis/notes.md`.
+
+## Architecture rules
+
+- `core` is pure functions and imports nothing from Django or the database.
+- In `decisions`, dependencies go one way: `api.py`/`schemas.py` → `services.py`
+  → `models.py` and `core`. Business rules and role checks live in services.
+
+## Language
+
+- Code, comments, docstrings, commits and agent files: English.
+- `docs/thesis/notes.md`: Bulgarian.
+
 ## Agent skills
 
 ### Issue tracker
