@@ -22,7 +22,9 @@ Read during code review. Anything ruff or mypy enforces is not repeated here.
 - Each non-CRUD action is one service function and one transaction.
 - Closing an iteration locks the iteration row (`select_for_update`).
 - Invariants are also enforced by database constraints, not only in code.
-- Snapshot JSONB fields are written once and never updated.
+- Snapshot JSONB fields are written once and never updated (ADR-0001).
+- A `Submission` is never updated after it is created; agreement measures live in the iteration snapshot.
+- JSONB vectors and matrices are keyed by alternative and criterion ids, never by position.
 
 ## ORM and queries
 
@@ -57,7 +59,7 @@ Read during code review. Anything ruff or mypy enforces is not repeated here.
 - New tests are plain pytest functions, not `TestCase`.
 - Tests live in the package's `tests/` folder, in `test_<module>.py`.
 - Use `@pytest.mark.django_db` only when the test touches the database. Core tests never do.
-- Core tests use the 3×4×3 example; Spearman and Kendall are checked against scipy.
+- Core tests use the 3×4×3 example; Spearman and Kendall are checked against scipy only for rankings without ties, and tied cases against hand-computed values (ADR-0002).
 - Database tests run on PostgreSQL, never SQLite.
 - New service logic needs a test.
 - A bug fix needs a regression test that fails without the fix.
