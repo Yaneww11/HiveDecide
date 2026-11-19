@@ -4,4 +4,34 @@ version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
     "django>=6.1.3",
+    "django-environ>=0.14.0",
+    "django-ninja>=1.8.0",
+    "numpy>=2.5.5",
+    "psycopg[binary]>=3.3.9",
 ]
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "pytest-django>=4.14.0",
+    "ruff>=0.17.6",
+    "scipy>=1.18.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+extend-exclude = ["**/migrations/*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "DJ", "N", "PT", "RUF"]
+
+[tool.mypy]
+strict = true
+files = ["hive_decide/core"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "hive_decide.settings"
+python_files = ["test_*.py"]
+addopts = "--strict-markers"
