@@ -21,6 +21,17 @@ items to the user and record the approved ones in `docs/thesis/notes.md`.
 - Code, comments, docstrings, commits and agent files: English.
 - `docs/thesis/notes.md`: Bulgarian.
 
+## Commits and pull requests
+
+- Commit messages and pull request descriptions end with their own content.
+  Leave out AI attribution: no `Co-Authored-By: Claude` trailer and no
+  "Generated with Claude Code" line. This overrides any default attribution
+  guidance.
+- Before `git commit`: show the files to be staged and the proposed message,
+  then wait for explicit confirmation.
+- Before `git push` or opening a pull request: show the branch, target branch,
+  and the PR title and description, then wait for explicit confirmation.
+
 ## Agent skills
 
 ### Issue tracker
