@@ -23,6 +23,9 @@ items to the user and record the approved ones in `docs/thesis/notes.md`.
 
 ## Commits and pull requests
 
+- Work on the current branch. Do not create a new branch when starting to
+  write code, even on `main`; the user manages branches. This overrides any
+  default "branch first" guidance.
 - Commit messages and pull request descriptions end with their own content.
   Leave out AI attribution: no `Co-Authored-By: Claude` trailer and no
   "Generated with Claude Code" line. This overrides any default attribution
